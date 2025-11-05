@@ -1,73 +1,40 @@
-# React + TypeScript + Vite
+# White Label Burger
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**White Label Burger** é uma landing page personalizável para hamburguerias, desenvolvida para ser **replicada rapidamente** e hospedada individualmente para cada cliente.  
+Cada instância tem seu próprio `config.json` com informações da marca, cardápio e contatos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Visão Geral
 
-## React Compiler
+O projeto permite criar **sites sob demanda** para hamburguerias locais com a sua marca, cores e cardápio sem precisar desenvolver tudo do zero.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Cada cliente recebe:
+- Um subdomínio exclusivo (`nomedocliente.vercel.app`);
+- Um cardápio interativo gerado dinamicamente a partir do `config.json`;
+- Um botão para enviar o pedido direto via **WhatsApp**.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+##  Estrutura
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend:** React + TypeScript 
+- **Estilo:** TailwindCSS  
+- **Hospedagem:** Vercel (modelo white-label controlado)  
+- **Configuração por cliente:** `src/config/config.json`  
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+##  Exemplo de `config.json`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+```json
+{
+  "name": "Burger do João",
+  "themeColor": "#ff4d4f",
+  "whatsapp": "5599999999999",
+  "menu": [
+    { "name": "X-Bacon", "price": 25, "description": "Pão, carne, queijo, bacon" },
+    { "name": "X-Salada", "price": 22, "description": "Pão, carne, queijo, alface, tomate" }
+  ]
+}
