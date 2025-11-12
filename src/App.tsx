@@ -1,15 +1,22 @@
-import './App.css'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ConfigContext } from "./context/config-context";
+import Index from "./pages";
+import { Toaster } from "./components/ui/sonner";
 
-function App() {
-  
-
-  return (
-    <>
-     <div>
-      <h1>Hello World</h1>
-     </div>
-    </>
-  )
+interface AppProps {
+  config: any;
 }
 
-export default App
+export default function App({ config }: AppProps) {
+  return (
+    <ConfigContext.Provider value={config}>
+      <Toaster />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+        </Routes>
+      </BrowserRouter>
+    </ConfigContext.Provider>
+  );
+}

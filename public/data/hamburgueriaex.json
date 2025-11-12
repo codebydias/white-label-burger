@@ -1,0 +1,67 @@
+{
+  "name": "Burger Rotiv",
+
+  "about": {
+    "title": "Sobre Nós",
+    "subtitle": "Desde 2018 entregando sabor e qualidade",
+    "items": [
+      {
+        "icon": "heart",
+        "title": "Feito com Amor",
+        "description": "Cada hambúrguer é preparado com carinho e ingredientes frescos"
+      },
+      {
+        "icon": "award",
+        "title": "Qualidade Premium",
+        "description": "Trabalhamos apenas com carne angus e pães artesanais"
+      },
+      {
+        "icon": "clock",
+        "title": "Entrega Rápida",
+        "description": "Seu lanche quentinho em até 30 minutos"
+      }
+    ]
+  },
+  
+  "locations": [
+    {
+      "name": "Centro",
+      "address": "Rua das Flores, 123 - Centro",
+      "phone": "(11) 98765-4321",
+      "hours": "Seg-Dom: 18h às 23h"
+    },
+    {
+      "name": "Bairro Alto",
+      "address": "Av. Principal, 456 - Bairro Alto",
+      "phone": "(11) 98765-4322",
+      "hours": "Seg-Dom: 18h às 23h"
+    }
+  ],
+
+  "menu": [
+    {
+      "categoria": "Lanches",
+      "itens": [
+        {
+          "id": 1,
+          "nome": "X-Burger",
+          "descricao": "Clássico com queijo",
+          "preco": 20.0
+        },
+        {
+          "id": 2,
+          "nome": "X-Bacon",
+          "descricao": "Com bacon crocante",
+          "preco": 25.0
+        }
+      ]
+    },
+    {
+      "categoria": "Adicionais",
+      "itens": [
+        { "id": 101, "nome": "Bacon extra", "preco": 5.0 },
+        { "id": 102, "nome": "Queijo duplo", "preco": 4.0 }
+      ]
+    }
+  ]
+}
