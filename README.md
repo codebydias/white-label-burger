@@ -1,40 +1,61 @@
 # White Label Burger
 
-**White Label Burger** é uma landing page personalizável para hamburguerias, desenvolvida para ser **replicada rapidamente** e hospedada individualmente para cada cliente.  
-Cada instância tem seu próprio `config.json` com informações da marca, cardápio e contatos.
+**White Label Burger** é uma landing page **personalizável para hamburguerias**, feita para ser **replicada e lançada em minutos**.  
+Cada cliente tem sua própria configuração via `config.json`, definindo marca, cardápio e contatos — sem precisar alterar o código.
 
 ---
 
-##  Visão Geral
+## O que é
 
-O projeto permite criar **sites sob demanda** para hamburguerias locais com a sua marca, cores e cardápio sem precisar desenvolver tudo do zero.
+Um sistema de **sites sob demanda** para hamburguerias locais.  
+Você personaliza cores, nome, cardápio e WhatsApp, e o deploy gera um site exclusivo (ex: `nomedocliente.vercel.app`).
 
-Cada cliente recebe:
-- Um subdomínio exclusivo (`nomedocliente.vercel.app`);
-- Um cardápio interativo gerado dinamicamente a partir do `config.json`;
-- Um botão para enviar o pedido direto via **WhatsApp**.
+O cliente ganha:
 
----
-
-##  Estrutura
-
-- **Frontend:** React + TypeScript 
-- **Estilo:** TailwindCSS  
-- **Hospedagem:** Vercel (modelo white-label controlado)  
-- **Configuração por cliente:** `src/config/config.json`  
-
+- Um site responsivo e rápido;
+- Um cardápio interativo configurado por JSON;
+- Envio de pedidos direto pelo **WhatsApp**.
 
 ---
 
-##  Exemplo de `config.json`
+## Stack
+
+- **Frontend:** React + TypeScript
+- **Estilo:** TailwindCSS
+- **Deploy:** Vercel
+- **Configuração por cliente:** `src/data/{nome}.json`
+
+---
+
+## Exemplo de Configuração (`data/burgerdojoao.json`)
 
 ```json
 {
   "name": "Burger do João",
-  "themeColor": "#ff4d4f",
   "whatsapp": "5599999999999",
+  "theme": {
+    "primary": "#ff4d4f",
+    "background": "#0b090a",
+    "text": "#ededed"
+  },
   "menu": [
-    { "name": "X-Bacon", "price": 25, "description": "Pão, carne, queijo, bacon" },
-    { "name": "X-Salada", "price": 22, "description": "Pão, carne, queijo, alface, tomate" }
+    {
+      "categoria": "Lanches",
+      "itens": [
+        {
+          "id": 1,
+          "nome": "X-Bacon",
+          "descricao": "Pão, carne, queijo e bacon",
+          "preco": 25
+        },
+        {
+          "id": 2,
+          "nome": "X-Salada",
+          "descricao": "Pão, carne, queijo, alface e tomate",
+          "preco": 22
+        }
+      ]
+    }
   ]
 }
+```
